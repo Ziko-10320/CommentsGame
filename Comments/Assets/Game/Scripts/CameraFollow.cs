@@ -41,10 +41,13 @@ public class CameraFollow : MonoBehaviour
         if (target == null) return;
 
         // Calculate the desired position of the camera
-        Vector3 desiredPosition = target.position + offset;
+        // We only want to track the X position of the target
+        Vector3 desiredPosition = new Vector3(target.position.x, transform.position.y, transform.position.z) + new Vector3(offset.x, 0, 0);
 
         // Smoothly move the camera towards the desired position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+
+        // Preserve the camera's original Y and Z position (or the initial offset Y/Z)
+        transform.position = new Vector3(smoothedPosition.x, transform.position.y, transform.position.z);
     }
 }
