@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6973779391497511639}
   - component: {fileID: 2346651247377629064}
   - component: {fileID: 398954505684973054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blue Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3957490929150958894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
