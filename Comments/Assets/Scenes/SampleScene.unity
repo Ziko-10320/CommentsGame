@@ -5883,6 +5883,7 @@ RectTransform:
   m_Children:
   - {fileID: 431715408}
   - {fileID: 1602150307}
+  - {fileID: 634002908}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13481,6 +13482,7 @@ GameObject:
   - component: {fileID: 521851109}
   - component: {fileID: 521851108}
   - component: {fileID: 521851107}
+  - component: {fileID: 521851110}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -13517,7 +13519,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13600,6 +13602,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1957557963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521851110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521851106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f606d04e0ddc39c42a8287173f9dd011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+  knockbackForce: 20
+  targetTag: Player
 --- !u!1 &529139716
 GameObject:
   m_ObjectHideFlags: 0
@@ -14889,6 +14906,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &634002907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634002908}
+  - component: {fileID: 634002909}
+  m_Layer: 5
+  m_Name: Heart container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &634002908
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634002907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103780641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -467, y: 219}
+  m_SizeDelta: {x: 289.26, y: 75.74}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &634002909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634002907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: -50
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &634277656
 GameObject:
   m_ObjectHideFlags: 0
@@ -16551,6 +16630,7 @@ GameObject:
   - component: {fileID: 800463508}
   - component: {fileID: 800463507}
   - component: {fileID: 800463512}
+  - component: {fileID: 800463513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16735,6 +16815,24 @@ MonoBehaviour:
   troopCount: 3
   troopCost: 2
   resourceManager: {fileID: 2000093946}
+--- !u!114 &800463513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800463506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efba91102d04764bb4f03f9b0c8009e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  heartContainer: {fileID: 634002908}
+  heartPrefab: {fileID: 2121844684148333878, guid: 3ee81c601c9fa4a41b3ebc3b77116185, type: 3}
+  fullHeartSprite: {fileID: 2148542204797056986, guid: 2896070a4823c104ab9e82c0ce1e9dcb, type: 3}
+  emptyHeartSprite: {fileID: 1571686069076835949, guid: 2896070a4823c104ab9e82c0ce1e9dcb, type: 3}
 --- !u!1 &805572055
 GameObject:
   m_ObjectHideFlags: 0
@@ -26808,6 +26906,7 @@ GameObject:
   - component: {fileID: 1466988497}
   - component: {fileID: 1466988496}
   - component: {fileID: 1466988495}
+  - component: {fileID: 1466988498}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -26844,7 +26943,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -26927,6 +27026,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1957557963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1466988498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466988494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f606d04e0ddc39c42a8287173f9dd011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+  knockbackForce: 20
+  targetTag: Player
 --- !u!1 &1501631905
 GameObject:
   m_ObjectHideFlags: 0
