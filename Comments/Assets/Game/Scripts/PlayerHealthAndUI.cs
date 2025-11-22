@@ -11,6 +11,13 @@ public class PlayerHealthAndUI : MonoBehaviour
     [Tooltip("The current number of health points.")]
     public int currentHealth;
 
+    [Header("Buffs")]
+    public bool isIceImmune = false;
+
+    [Header("Visuals")]
+    [Tooltip("The SpriteRenderer component for the ice skates visual on the player.")]
+    public SpriteRenderer iceSkatesVisual;
+
     [Header("UI References")]
     [Tooltip("The parent transform for all heart images (e.g., a Horizontal Layout Group).")]
     public Transform heartContainer;
@@ -22,23 +29,39 @@ public class PlayerHealthAndUI : MonoBehaviour
     public Sprite emptyHeartSprite;
 
     private List<Image> hearts = new List<Image>();
+    private PhysicsMaterial2D originalPhysicsMaterial; // NEW: To store the default material
+    private Collider2D playerCollider; // NEW: To access the collider
 
     void Start()
     {
         currentHealth = maxHealth;
         InitializeHearts();
+
+        // NEW: Store the original physics material and collider
+        playerCollider = GetComponent<Collider2D>();
+        if (playerCollider != null)
+        {
+            originalPhysicsMaterial = playerCollider.sharedMaterial;
+        }
     }
 
     // --- Health Logic ---
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, string damageSourceTag = "")
     {
-        if (currentHealth <= 0) return; // Already dead
+        if (currentHealth <= 0) return;
+
+        // Check for immunity based on the damage source tag
+        if (damageSourceTag == "Ice" && isIceImmune)
+        {
+            Debug.Log("Immune to Ice damage!");
+            return;
+        }
 
         currentHealth -= damageAmount;
-        currentHealth = Mathf.Max(currentHealth, 0); // Health cannot go below zero
+        currentHealth = Mathf.Max(currentHealth, 0);
 
-        UpdateHearts(); // Update UI immediately after taking damage
+        UpdateHearts();
 
         if (currentHealth <= 0)
         {
@@ -46,25 +69,39 @@ public class PlayerHealthAndUI : MonoBehaviour
         }
         else
         {
-            Debug.Log(gameObject.name + " took " + damageAmount + " damage. Remaining health: " + currentHealth);
+            Debug.Log(gameObject.name + " took " + damageAmount + " damage from " + damageSourceTag + ". Remaining health: " + currentHealth);
         }
     }
 
     private void Die()
     {
         Debug.Log(gameObject.name + " has died!");
-
-        // For a simple implementation, we can disable the player object
         gameObject.SetActive(false);
     }
 
-    // Optional: Method to restore health
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth); // Health cannot exceed max
-
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
         UpdateHearts();
+    }
+
+    // UPDATED: Method to grant the ice skates buff and apply the slide material
+    public void GrantIceSkatesBuff(PhysicsMaterial2D slideMaterial)
+    {
+        isIceImmune = true;
+        if (iceSkatesVisual != null)
+        {
+            iceSkatesVisual.enabled = true;
+        }
+
+        // NEW: Apply the sliding physics material
+        if (playerCollider != null)
+        {
+            playerCollider.sharedMaterial = slideMaterial;
+        }
+
+        Debug.Log(gameObject.name + " collected Ice Skates and is now immune to Ice damage and can slide!");
     }
 
     // --- UI Logic ---
@@ -77,21 +114,18 @@ public class PlayerHealthAndUI : MonoBehaviour
             return;
         }
 
-        // Clear any existing hearts
         foreach (Transform child in heartContainer)
         {
             Destroy(child.gameObject);
         }
         hearts.Clear();
 
-        // Instantiate the heart images
         for (int i = 0; i < maxHealth; i++)
         {
             Image newHeart = Instantiate(heartPrefab, heartContainer);
             hearts.Add(newHeart);
         }
 
-        // Initial update
         UpdateHearts();
     }
 
@@ -101,12 +135,10 @@ public class PlayerHealthAndUI : MonoBehaviour
         {
             if (i < currentHealth)
             {
-                // This heart is full (Red)
                 hearts[i].sprite = fullHeartSprite;
             }
             else
             {
-                // This heart is empty (White)
                 hearts[i].sprite = emptyHeartSprite;
             }
         }
