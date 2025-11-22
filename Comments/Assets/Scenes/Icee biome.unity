@@ -537,12 +537,12 @@ GameObject:
   - component: {fileID: 46380436}
   - component: {fileID: 46380437}
   m_Layer: 0
-  m_Name: Skates
+  m_Name: SkatesB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &46380436
 Transform:
   m_ObjectHideFlags: 0
@@ -552,8 +552,8 @@ Transform:
   m_GameObject: {fileID: 46380435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.463, y: -0.359, z: 0}
-  m_LocalScale: {x: 0.59004635, y: 0.59004635, z: 0.59004635}
+  m_LocalPosition: {x: 0.48, y: -0.19, z: 0}
+  m_LocalScale: {x: 0.43358964, y: 0.43358964, z: 0.43358964}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 687173243}
@@ -565,7 +565,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46380435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -15444,8 +15444,8 @@ Transform:
   m_GameObject: {fileID: 1145499533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.091, y: -0.456, z: 0}
-  m_LocalScale: {x: 0.619119, y: 0.619119, z: 0.619119}
+  m_LocalPosition: {x: -0.12709704, y: -0.21127874, z: 0}
+  m_LocalScale: {x: 0.45495337, y: 0.45495337, z: 0.45495337}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 687173243}
@@ -16731,12 +16731,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.167
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9255165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.37870732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -44.507
+      objectReference: {fileID: 0}
     - target: {fileID: 5681616691926066690, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
       propertyPath: heartContainer
       value: 
       objectReference: {fileID: 1767945663}
     - target: {fileID: 5681616691926066690, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
       propertyPath: iceSkatesVisual
+      value: 
+      objectReference: {fileID: 1145499535}
+    - target: {fileID: 5681616691926066690, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: iceSkateVisualBack
+      value: 
+      objectReference: {fileID: 46380437}
+    - target: {fileID: 5681616691926066690, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: iceSkateVisualFront
       value: 
       objectReference: {fileID: 1145499535}
     - target: {fileID: 6097521712495385279, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}

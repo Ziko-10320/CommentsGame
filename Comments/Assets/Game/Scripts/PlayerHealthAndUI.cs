@@ -15,8 +15,12 @@ public class PlayerHealthAndUI : MonoBehaviour
     public bool isIceImmune = false;
 
     [Header("Visuals")]
-    [Tooltip("The SpriteRenderer component for the ice skates visual on the player.")]
-    public SpriteRenderer iceSkatesVisual;
+    [Tooltip("The SpriteRenderer for the FRONT ice skate visual.")]
+    public SpriteRenderer iceSkateVisualFront; // Renamed for clarity
+
+    // --- NEW: Add a reference for the back skate ---
+    [Tooltip("The SpriteRenderer for the BACK ice skate visual.")]
+    public SpriteRenderer iceSkateVisualBack;
 
     [Header("UI References")]
     [Tooltip("The parent transform for all heart images (e.g., a Horizontal Layout Group).")]
@@ -90,11 +94,14 @@ public class PlayerHealthAndUI : MonoBehaviour
     public void GrantIceSkatesBuff(PhysicsMaterial2D slideMaterial)
     {
         isIceImmune = true;
-        if (iceSkatesVisual != null)
+        if (iceSkateVisualFront != null)
         {
-            iceSkatesVisual.enabled = true;
+            iceSkateVisualFront.enabled = true;
         }
-
+        if (iceSkateVisualBack != null)
+        {
+            iceSkateVisualBack.enabled = true;
+        }
         // NEW: Apply the sliding physics material
         if (playerCollider != null)
         {
