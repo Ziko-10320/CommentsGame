@@ -11,7 +11,7 @@ public class PlayerHealthAndUI : MonoBehaviour
     [Tooltip("The current number of health points.")]
     public int currentHealth;
 
-    [Header("Buffs")]
+    [HideInInspector]
     public bool isIceImmune = false;
 
     [Header("Visuals")]

@@ -8490,7 +8490,7 @@ Transform:
   m_GameObject: {fileID: 361410004}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.1, y: -0, z: -0.14538701}
+  m_LocalPosition: {x: -16.6, y: -0, z: -0.14538701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16731,13 +16731,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4758307271524814024, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: slideMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 2b3698656a0788d4382d4366c1ee8291, type: 2}
+    - target: {fileID: 4758307271524814024, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: iceSkateVisualBack
+      value: 
+      objectReference: {fileID: 46380437}
+    - target: {fileID: 4758307271524814024, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
+      propertyPath: iceSkateVisualFront
+      value: 
+      objectReference: {fileID: 1145499535}
     - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.167
+      value: 0.549
       objectReference: {fileID: 0}
     - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.593
+      value: 0.034
       objectReference: {fileID: 0}
     - target: {fileID: 5559813438607198337, guid: c1ada9092c6bb7645839b14185d12e60, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20119,28 +20131,15 @@ GameObject:
   - component: {fileID: 1664163087}
   - component: {fileID: 1664163086}
   - component: {fileID: 1664163085}
-  - component: {fileID: 1664163084}
+  - component: {fileID: 1664163088}
+  - component: {fileID: 1664163089}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: 'Skatecollectable '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1664163084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664163083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c68370562e0db64da8b45ad376d0dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectorTag: Player
-  slideMaterial: {fileID: 6200000, guid: 2b3698656a0788d4382d4366c1ee8291, type: 2}
 --- !u!61 &1664163085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20253,6 +20252,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.437}
+--- !u!114 &1664163088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664163083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7234f41821996e41bd8775b39a69212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: IceSkates
+--- !u!114 &1664163089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664163083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11237dbc846dad47b197f141c8c8d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredItems:
+  - IceSkates
+  craftedItemName: IceSkates
+  interactionPrompt: {fileID: 0}
 --- !u!1 &1666165808
 GameObject:
   m_ObjectHideFlags: 0

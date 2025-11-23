@@ -16,31 +16,29 @@ public class DamageSource : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the colliding object has the target tag
         if (other.CompareTag(targetTag))
         {
+            // We only need the health script now for this logic
             PlayerHealthAndUI healthSystem = other.GetComponent<PlayerHealthAndUI>();
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
 
             if (healthSystem != null)
             {
-                // 1. Deal damage, passing the source tag
+                // 1. Deal damage (this part is correct)
                 healthSystem.TakeDamage(damageAmount, damageSourceTag);
 
-                // 2. Apply vertical knockback (bounce) - ONLY if not immune to ice or if the source is not ice
-                // If the player is immune to ice, we skip the knockback on ice surfaces.
-                if (rb != null && !(damageSourceTag == "Ice" && healthSystem.isIceImmune))
+                // --- THIS IS THE FINAL FIX ---
+                // 2. Check for immunity using the HEALTH script's flag, just like PlayerMovement does.
+                bool isImmuneToIce = healthSystem.isIceImmune;
+
+                // Apply knockback ONLY if the source is NOT ice, OR if the player is NOT immune.
+                if (rb != null && !(damageSourceTag == "Ice" && isImmuneToIce))
                 {
-                    // Reset vertical velocity to ensure consistent bounce height
+                    // This code will now be SKIPPED correctly when you have the skates.
                     rb.velocity = new Vector2(rb.velocity.x, 0f);
                     rb.AddForce(Vector2.up * knockbackForce, ForceMode2D.Impulse);
                 }
             }
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        // ... (rest of the script remains the same)
     }
 }

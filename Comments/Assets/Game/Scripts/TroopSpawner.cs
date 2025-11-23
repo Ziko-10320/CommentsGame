@@ -31,7 +31,7 @@ public class TroopSpawner : MonoBehaviour
     {
         // Check for player input to spawn a troop (e.g., spacebar or mouse click)
         // For simplicity, we'll use the Space key for now.
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             TrySpawnTroop();
         }

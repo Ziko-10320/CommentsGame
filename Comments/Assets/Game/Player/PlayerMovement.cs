@@ -6,14 +6,17 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
 
-    // --- NEW: Deceleration Settings ---
     [Header("Deceleration Settings")]
-    [Tooltip("How quickly the player stops on normal ground. A lower value means a faster stop.")]
+    [Tooltip("How quickly the player stops on normal ground.")]
     [Range(0f, 1f)]
-    public float groundDamping = 0.8f; // Player stops quickly
-    [Tooltip("How quickly the player stops on ice. A higher value means a longer slide.")]
+    public float groundDamping = 0.8f;
+    [Tooltip("How quickly the player stops on ice.")]
     [Range(0f, 1f)]
-    public float iceDamping = 0.99f; // Player slides for a while
+    public float iceDamping = 0.99f;
+    // --- NEW: Air Damping ---
+    [Tooltip("How quickly the player stops in the air. Lower value = faster stop.")]
+    [Range(0f, 1f)]
+    public float airDamping = 0.8f; // Make this low for snappy control
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -22,54 +25,61 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private float moveInput; // --- MODIFIED: Made this a class-level variable
-
-    // --- NEW: Reference to the health script ---
+    private float moveInput;
     private PlayerHealthAndUI playerHealth;
 
-    void Awake() // --- MODIFIED: Changed Start to Awake for reliability
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<PlayerHealthAndUI>(); // Get the health script
+        playerHealth = GetComponent<PlayerHealthAndUI>();
     }
 
     void Update()
     {
-        // --- Ground Check (circle) ---
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        moveInput = Input.GetAxisRaw("Horizontal");
 
-        // --- Horizontal Input ---
-        moveInput = Input.GetAxisRaw("Horizontal"); // Store input
-
-        // --- Jump (Space) ---
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
 
-    // --- NEW: Using FixedUpdate for all physics ---
+    // --- RESTRUCTURED FIXEDUPDATE ---
     void FixedUpdate()
     {
-        if (moveInput != 0)
+        if (!enabled) return; // For the dash script
+
+        // --- Grounded Movement ---
+        if (isGrounded)
         {
-            // --- Player is pressing a move key ---
-            // This line is the same as your old movement code
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-        }
-        else
-        {
-            // --- Player is NOT pressing a move key (this is where sliding happens) ---
-            if (isGrounded) // Only apply damping if on the ground
+            if (moveInput != 0)
             {
-                // Check if the player has the ice skates buff from the health script
+                // Apply movement directly when on the ground
+                rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            }
+            else
+            {
+                // Apply ground/ice deceleration when not moving
+                if (playerHealth == null) return;
                 bool hasIceSkates = playerHealth.isIceImmune;
-
-                // Apply the correct damping based on whether we have the skates
                 float currentDamping = hasIceSkates ? iceDamping : groundDamping;
-
-                // Reduce the horizontal velocity over time to create a sliding or stopping effect
                 rb.velocity = new Vector2(rb.velocity.x * currentDamping, rb.velocity.y);
+            }
+        }
+        // --- Aerial Movement ---
+        else // if (isGrounded == false)
+        {
+            if (moveInput != 0)
+            {
+                // Apply movement in the air
+                rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            }
+            else
+            {
+                // --- THIS IS THE FIX ---
+                // Apply air deceleration when you let go of keys in the air.
+                rb.velocity = new Vector2(rb.velocity.x * airDamping, rb.velocity.y);
             }
         }
     }
@@ -77,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         if (groundCheck == null) return;
-
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
     }
