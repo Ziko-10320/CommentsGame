@@ -62,28 +62,24 @@ public class PlayerBuffs : MonoBehaviour
         if (hasWings) return;
         hasWings = true;
 
-        // Enable the PlayerDash script
+        // 1. Enable the PlayerDash script.
         PlayerDash dashScript = GetComponent<PlayerDash>();
         if (dashScript != null)
         {
             dashScript.enabled = true;
-            Debug.Log("WINGS BUFF GRANTED: Player can now dash!");
-        }
-        else
-        {
-            Debug.LogError("GrantWingsBuff failed: PlayerDash script not found on player!");
         }
 
-        // --- MODIFIED: Enable BOTH wing visuals ---
-        if (wingVisual1 != null)
+        // 2. Find the NEW movement script and unlock normal A/D movement.
+        SimpleGettingOverIt movementScript = GetComponent<SimpleGettingOverIt>();
+        if (movementScript != null)
         {
-            wingVisual1.enabled = true;
+            movementScript.normalMovementUnlocked = true;
+            Debug.Log("WINGS BUFF GRANTED: Normal movement unlocked!");
         }
-        if (wingVisual2 != null)
-        {
-            wingVisual2.enabled = true;
-        }
-        // --- END OF MODIFICATION ---
+
+        // 3. Enable the wing visuals.
+        if (wingVisual1 != null) wingVisual1.enabled = true;
+        if (wingVisual2 != null) wingVisual2.enabled = true;
     }
     public void ShowSkateVisuals()
     {
