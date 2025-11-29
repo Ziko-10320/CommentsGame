@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: 0a58da8f7fccbf34d9d654df132532bf
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: moth.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 812
+      width: 649
+      height: 525
+    spriteID: f1aceca7f088b6b4d94431f78699379c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -78, y: 776}
+    spritePosition: {x: 82, y: 143}
+  - name: ketchup 2.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 571
+      y: 1345
+      width: 415
+      height: 452
+    spriteID: 96d4cd9d846af2245adbb48f153d2e57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 483, y: 1249}
+    spritePosition: {x: 182, y: 190}
+  - name: sans.png
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 661
+      y: 812
+      width: 206
+      height: 307
+    spriteID: edd4c2e9e39c37f41a1460bb807f7bb0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 661, y: 812}
+    spritePosition: {x: 383, y: 180}
+  - name: ebron.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 750
+      height: 800
+    spriteID: 05ff71911427a58479ad26f142e78045
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 25, y: 0}
+  - name: cat.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 762
+      y: 370
+      width: 164
+      height: 196
+    spriteID: ae29cae0cbf020e4ab19d4f47bc4c0fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 725, y: 370}
+    spritePosition: {x: 324, y: 288}
+  - name: wall.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 661
+      y: 1127
+      width: 279
+      height: 181
+    spriteID: dbbfd18c04c203e47b027c509012e979
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 661, y: 1127}
+    spritePosition: {x: 260, y: 310}
+  - name: vampire.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 762
+      y: 4
+      width: 141
+      height: 358
+    spriteID: 406bcc61ee0427f44bc13e2ca1f663df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 762, y: 4}
+    spritePosition: {x: 329, y: 221}
+  - name: snail.jpg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 762
+      y: 574
+      width: 166
+      height: 120
+    spriteID: cf3bffc27d7742f4e84d7971bed3487f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 741, y: 516}
+    spritePosition: {x: 308, y: 346}
+  - name: robot.webp
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1345
+      width: 559
+      height: 454
+    spriteID: 5d8c1cba3ef56ad47b3eb88688e70da2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1345}
+    spritePosition: {x: 119, y: 232}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: moth.jpg
+    spriteName: moth.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f1aceca7f088b6b4d94431f78699379c
+    layerID: 0
+    mosaicPosition: {x: 4, y: 812}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ketchup 2.jpg
+    spriteName: ketchup 2.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 96d4cd9d846af2245adbb48f153d2e57
+    layerID: -399405179
+    mosaicPosition: {x: 571, y: 1345}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sans.png
+    spriteName: sans.png
+    isGroup: 0
+    parentIndex: -1
+    spriteID: edd4c2e9e39c37f41a1460bb807f7bb0
+    layerID: -1734663784
+    mosaicPosition: {x: 661, y: 812}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ebron.jpg
+    spriteName: ebron.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 05ff71911427a58479ad26f142e78045
+    layerID: 2132402367
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: cat.jpg
+    spriteName: cat.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ae29cae0cbf020e4ab19d4f47bc4c0fb
+    layerID: 993719105
+    mosaicPosition: {x: 762, y: 370}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: wall.jpg
+    spriteName: wall.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dbbfd18c04c203e47b027c509012e979
+    layerID: -552379719
+    mosaicPosition: {x: 661, y: 1127}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: vampire.jpg
+    spriteName: vampire.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 406bcc61ee0427f44bc13e2ca1f663df
+    layerID: 1581808567
+    mosaicPosition: {x: 762, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: snail.jpg
+    spriteName: snail.jpg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cf3bffc27d7742f4e84d7971bed3487f
+    layerID: 946073410
+    mosaicPosition: {x: 762, y: 574}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: robot.webp
+    spriteName: robot.webp
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5d8c1cba3ef56ad47b3eb88688e70da2
+    layerID: 1609265930
+    mosaicPosition: {x: 4, y: 1345}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
