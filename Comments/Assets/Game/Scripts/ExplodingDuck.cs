@@ -23,7 +23,8 @@ public class ExplodingDuck : MonoBehaviour
 
     private Rigidbody2D rb;
     private float moveDirection = 1f; // 1 for right, -1 for left
-
+    [Tooltip("If checked, the duck will be destroyed after it explodes. If unchecked, it will explode repeatedly.")]
+    public bool diesOnExplode = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -65,35 +66,47 @@ public class ExplodingDuck : MonoBehaviour
     {
         Debug.Log("DUCK HAS EXPLODED!");
 
-        // 1. Spawn the visual explosion effect at the duck's position.
+        // 1. Spawn the visual explosion effect (this part is the same).
         if (explosionEffectPrefab != null)
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        // 2. Find all colliders within the explosion radius.
+        // 2. Deal damage (this part is the same).
         Collider2D[] objectsInRange = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-
         foreach (Collider2D col in objectsInRange)
         {
-            // 3. Check if any of the found objects are the Player.
             if (col.CompareTag("Player"))
             {
                 PlayerHealthAndUI playerHealth = col.GetComponent<PlayerHealthAndUI>();
                 if (playerHealth != null)
                 {
-                    // 4. Deal damage to the player.
-                    Debug.Log("Explosion hit the player!");
                     playerHealth.TakeDamage(explosionDamage, "Explosion");
                 }
             }
-            // You could add checks for other things here, like enemies or breakable walls.
         }
 
-        // 5. Destroy the duck GameObject.
-        Destroy(gameObject);
+        // --- THIS IS THE MODIFICATION ---
+        // 3. Check our new boolean.
+        if (diesOnExplode)
+        {
+            // If the box is checked, destroy the duck.
+            Destroy(gameObject);
+        }
+        else
+        {
+            // If the box is NOT checked, just set a timer for the next explosion.
+            float nextExplosionTimer = Random.Range(minExplosionTime, maxExplosionTime);
+            Invoke("Explode", nextExplosionTimer);
+            Debug.Log($"This duck will explode again in {nextExplosionTimer:F1} seconds!");
+        }
+        // --- END OF MODIFICATION ---
     }
-
+    private void OnDestroy()
+    {
+        // Cancel any pending calls to the "Explode" function to prevent errors.
+        CancelInvoke("Explode");
+    }
     // This is a helper to see the explosion radius in the editor.
     private void OnDrawGizmosSelected()
     {
